@@ -1,0 +1,60 @@
+<html>
+<script>
+const log = console.log;
+// const pipe = function (value) {
+//   const fnStack = [];
+//   const proxy = new Proxy({}, {
+//     get(target, property) {
+//       if (property === 'get') {
+//         return fnStack.reduce((val, fn) => fn(val), value)
+//       }
+//       fnStack.push(window[property]);
+//       return proxy;
+//     }
+//   });
+
+//   return proxy;
+// }
+
+// var double = n => n * 2;
+// var pow    = n => n * n;
+// var reverseInt = n => n.toString().split("").reverse().join("") | 0;
+
+// log(pipe(3).double.pow.reverseInt.get) // 63
+
+
+// var handler = {
+//   has (target, key) {
+//     debugger;
+//     if (key[0] === '_') {
+//       return false;
+//     }
+//     return key in target;
+//   }
+// };
+// var target = { _prop: 'foo', prop: 'foo' };
+// var proxy = new Proxy(target, handler);
+// 'prop' in proxy // false
+
+// const a = new Proxy([], {
+//   get(target, property, receiver) {
+
+//     debugger;
+//     return Reflect.get(target, property);
+//   },
+
+//   set(target, property, value, receiver) {
+
+//     debugger;
+//     return Reflect.set(target, property, value);
+//   }
+// })
+
+// a[10] = 1;
+// log(a[10]);
+// a.unshift(2);
+// a.unshift(3);
+// log(a);
+
+</script>
+</html>

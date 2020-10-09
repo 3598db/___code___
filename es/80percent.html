@@ -1,0 +1,33 @@
+<html>
+  <script>
+
+  (async () => {
+    for (var i = 0; i < 5; i++) {
+      await new Promise(resolve => {
+        setTimeout(function() {
+          console.log(new Date, i);
+          resolve();
+        }, 1000);
+      });
+    }
+
+    await new Promise(resolve => {
+      setTimeout(function() {
+        console.log(new Date, i);
+        resolve();
+      }, 1000);
+    });
+  })();
+
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  </script>
+</html>

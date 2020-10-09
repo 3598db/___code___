@@ -1,0 +1,24 @@
+<html>
+<script>
+// 把一个接收多参的函数改造成接收单参的函数
+function currying(fn, array = []) {
+	return function (...args) {
+    // 返回柯里化函数还是结果 以收集到的参数数量而定
+		return (function (arg) {
+			return arg.length === fn.length ? fn.apply(null, arg) : currying(fn, arg);
+		})([...array, ...args])
+	}
+}
+
+// Test
+const fn = currying(function(a, b, c) {
+    console.log([a, b, c].join(''));
+});
+
+fn("a", "b", "c") // ["a", "b", "c"]
+fn("a", "b")("c") // ["a", "b", "c"]
+fn("a")("b")("c") // ["a", "b", "c"]
+fn("a")("b", "c") // ["a", "b", "c"]
+  
+</script>
+</html>

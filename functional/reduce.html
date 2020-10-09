@@ -1,0 +1,44 @@
+<html>
+  <script>
+  
+  const log = console.log;
+
+  const array = [1,2,3,4,5];
+
+  Array.prototype._reduce = function (callback, initialValue) {
+    const array = this;
+    let index = 0;
+    
+    return (function recursion(acc) {
+      while (index <= array.length - 1) {
+        const _acc = callback(acc, array[index ++], index, array);
+        return recursion(_acc);
+      }
+
+      return acc;
+    })(initialValue);
+  };
+  
+  // log(array._reduce((acc, val) => {
+  //   return acc + val;
+  // }, 0))
+
+  [
+    Promise.resolve({index: 1}),
+    Promise.resolve({index: 2}),
+    Promise.resolve({index: 3}),
+    Promise.resolve({index: 4}),
+    Promise.resolve({index: 5})
+  ]._reduce(async (acc, val) => {
+    const before = await acc;
+    const current = await val;
+    log('//---------- 业务处理 ---------')
+    log(before, current);
+
+    return current;
+  });
+
+
+  
+  </script>
+</html>
